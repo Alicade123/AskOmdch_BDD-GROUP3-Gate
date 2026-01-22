@@ -24,6 +24,8 @@ public class StorePage {
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
     }
 
+
+
     public void chooseOptionFromDropDown(String category) {
         WebElement dropdown = wait.until(ExpectedConditions.elementToBeClickable(dropdownField));
         dropdown.click();
@@ -63,6 +65,12 @@ public class StorePage {
         By addToCartBtn = By.cssSelector("a[aria-label=\"Add “" + productName + "” to your cart\"]");
         wait.until(ExpectedConditions.elementToBeClickable(addToCartBtn)).click();
         wait.until(ExpectedConditions.elementToBeClickable(viewCart)).click();
+    }
+
+    public void clickProduct(String productName){
+        By productCard = By.cssSelector(".woocommerce-LoopProduct-link.woocommerce-loop-product__link");
+        By addToCartBtn = By.cssSelector("a[aria-label=\"Add “" + productName + "” to your cart\"]");
+        wait.until(ExpectedConditions.elementToBeClickable(productCard)).click();
     }
 
     public void proceedToCheckout() {
