@@ -1,0 +1,11 @@
+package askomdch.constants;
+
+public enum EndPoint {
+    HOMEPAGE("/"),
+    STORE("/store"),
+    ACCOUNT("/account");
+    public final String url;
+    EndPoint(String url) {
+        this.url  = url;
+    }
+}
