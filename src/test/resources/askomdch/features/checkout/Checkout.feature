@@ -23,3 +23,23 @@ Feature: checkout functionality
       | Cash on delivery |
     And I place the order
     Then I should see an order confirmation message
+    
+  @checkout @negative
+  Scenario: Checkout fails when first and last names are single characters
+    Given I am on the store page
+    When I add "Blue Shoes" in my cart
+    And I am on the checkout page
+    When I provide invalid shipping details with single-character names
+      | firstName     | A |
+      | lastName      | B |
+      | country       | US |
+      | streetAddress | st34566 |
+      | town          | China City |
+      | state         | AL |
+      | postCode      | 00000 |
+      | phone         | 0788888888 |
+      | email         | user2@gmail.com |
+    And I select
+      | Cash on delivery |
+    And I place the order
+    Then I should see a name validation error message
