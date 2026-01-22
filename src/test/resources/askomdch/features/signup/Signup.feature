@@ -15,9 +15,9 @@ Feature: User Registration
     Then I get redirected to Dashboard Page
     And I should see welcome message
     Examples:
-      | Username       | Email address                | Password |
-      | newAppUser1000 | newAppUser1000@example01.com | Pass123! |
-      | newAppUser2000 | newAppUser2000@example01.com | Pass456! |
+      | Username       | Email address                | Password     |
+      | newAppUser1000 | newAppUser1000@example01.com | Password123! |
+      | newAppUser2000 | newAppUser2000@example01.com | Password456@ |
 
   @negativeScenario
   Scenario Outline: Registration with missing required fields
@@ -38,6 +38,18 @@ Feature: User Registration
     Then I should see error "<error_message>"
 
     Examples:
-      | username      | emailAddress                | password | error_message                                                                   |
-      | newAppUser100 | newAppUser100@example01.com | Pass123! | Error: An account is already registered with your email address. Please log in. |
-      | newAppUser200 | newAppUser200@example01.com | Pass456! | Error: An account is already registered with your email address. Please log in. |
+      | username      | emailAddress                | password     | error_message                                                                   |
+      | newAppUser100 | newAppUser100@example01.com | Password123! | Error: An account is already registered with your email address. Please log in. |
+      | newAppUser200 | newAppUser200@example01.com | Password456@ | Error: An account is already registered with your email address. Please log in. |
+
+  @invalidCredentials
+  Scenario Outline: Registration fails with invalid inputs
+    When I enter "<username>" "<emailAddress>" and "<password>" in the registration form
+    And I click the "Register" button
+    Then I should see error "<error_message>"
+
+    Examples:
+      | username     | emailAddress                          | password      | error_message                          |
+      | x            | aaaaaaaaaa1000000000@example01.com    | Password123A! | Error: Please provide a valid username |
+      | therealuserx | newappr000ealuser000001@example01.com | 12345567      | Error: Please provide a valid password |
+
