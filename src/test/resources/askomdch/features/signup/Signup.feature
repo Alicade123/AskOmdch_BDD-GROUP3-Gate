@@ -15,7 +15,7 @@ Feature: User Registration
     Then I get redirected to Dashboard Page
     And I should see welcome message
     Examples:
-      | Username      | Email address               | Password |
+      | Username       | Email address                | Password |
       | newAppUser1000 | newAppUser1000@example01.com | Pass123! |
       | newAppUser2000 | newAppUser2000@example01.com | Pass456! |
 
@@ -25,7 +25,7 @@ Feature: User Registration
     And I click the "Register" button
     Then I should see error "<error_message>"
     Examples:
-      | username    | emailAddress            | password   | error_message                         |
+      | username    | emailAddress            | password   | error_message                                 |
       |             | newuser999@example.com  | Test@12345 | Error: Please enter a valid account username. |
       | testuser123 |                         | Test@12345 | Error: Please provide a valid email address.  |
       | testuser999 | testuser999@example.com |            | Error: Please enter an account password.      |
