@@ -1,10 +1,7 @@
 package askomdch.pages;
 
 import io.cucumber.datatable.DataTable;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -67,4 +64,13 @@ public class CheckoutPage {
         By statusMessage = By.cssSelector(".woocommerce-order p");
         return wait.until(ExpectedConditions.visibilityOfElementLocated(statusMessage)).getText();
     }
+    public String getNameValidationErrorMessage() {
+        By errorLocator = By.cssSelector(".woocommerce-error, .woocommerce-notice");
+        try {
+            return wait.until(ExpectedConditions.visibilityOfElementLocated(errorLocator)).getText();
+        } catch (TimeoutException e) {
+            return "";
+        }
+    }
+
 }

@@ -49,4 +49,17 @@ public class CheckoutStepDefinitions {
         String expectedResult = "Thank you. Your order has been received.";
         Assert.assertEquals("The expected Results is diff from actual Result", expectedResult, checkoutPage.getOrderConfirmationMessage());
     }
+
+    @When("I provide invalid shipping details with single-character names")
+    public void i_provide_invalid_shipping_details(DataTable dataTable) {
+        checkoutPage.fillBillingDetails(dataTable);
+    }
+
+    @Then("I should see a name validation error message")
+    public void i_should_see_name_validation_error_message() {
+        String expectedError = "Please enter a valid first name and last name.";
+        String actualError = checkoutPage.getNameValidationErrorMessage();
+        Assert.assertEquals("Name validation error did not appear as expected", expectedError, actualError);
+    }
+
 }
