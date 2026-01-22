@@ -6,7 +6,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "src/test/resources/askomdch/features",
+        features = "src/test/resources/askomdch/features/",
         glue = {"askomdch.stepdefinitions",
                 "askomdch.hooks",
                 "askomdch.dependencyinjection",
