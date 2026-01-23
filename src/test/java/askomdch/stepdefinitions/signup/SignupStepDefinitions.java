@@ -9,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 
 public class SignupStepDefinitions {
 
+
     private final WebDriver driver = DriverFactory.getDriver();
     private final AccountPage accountPage = new AccountPage(driver);
 

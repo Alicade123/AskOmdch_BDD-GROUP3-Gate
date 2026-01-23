@@ -45,6 +45,7 @@ public class StorePage {
     }
 
     public void clickFilterBtn() {
+
         driver.findElement(filterButton).click();
     }
 
