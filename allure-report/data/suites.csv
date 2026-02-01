@@ -1,0 +1,16 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"  As a Customer
+  I want to login AskOmDch OnlineStore
+  So that I can access my personalized data and preferences.","98918","Login Successfully","","2026-02-01","passed","2026-02-01","","Login Functionality","Login Successfully",""
+"  As a customer
+  I want to Add product to cart
+  so that I can purchase the product","91007","User update the product quantity in in the cart","","2026-02-01","passed","2026-02-01","","Add Product To Cart Functionality","User update the product quantity in in the cart",""
+"  As a Customer
+  I want to login AskOmDch OnlineStore
+  So that I can access my personalized data and preferences.","107669","Successfully initiate password reset","","2026-02-01","broken","2026-02-01","","Login Functionality","Successfully initiate password reset",""
+"  As a Customer
+  I want to login AskOmDch OnlineStore
+  So that I can access my personalized data and preferences.","101610","Login Successfully","","2026-02-01","broken","2026-02-01","","Login Functionality","Login Successfully",""
+"  As a customer
+  I want to Add product to cart
+  so that I can purchase the product","93529","Successful adding the product in cart","","2026-02-01","passed","2026-02-01","","Add Product To Cart Functionality","Successful adding the product in cart",""
