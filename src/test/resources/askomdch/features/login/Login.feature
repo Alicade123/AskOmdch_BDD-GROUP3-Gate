@@ -18,6 +18,8 @@ Feature: Login Functionality
       | USADeltaForce | Pass123! |
       | USANavy       | Pass456!qqq |
 
+
+
   @negativeScenario
   Scenario Outline: Login fails with invalid credentials
     When I enter valid credentials "<username>" and "<password>"
@@ -27,3 +29,12 @@ Feature: Login Functionality
       | username      | password | error_message                                                                                                                    |
       | USADeltaForce | 00000    | Error: The password you entered for the username USADeltaForce is incorrect. Lost your password?                                  |
       | Pass456!      | Pass456! | Error: The username Pass456! is not registered on this site. If you are unsure of your username, try your email address instead. |
+
+
+   @positiveScenario
+   Scenario: Successfully initiate password reset
+       Given I am on the "Account" page
+       When I click the "Lost your password?" link
+       And I enter a registered email "qwerty" in the lost password email field
+       And I click the "Reset password" button
+       Then I should see a confirmation message "Password reset email has been sent."

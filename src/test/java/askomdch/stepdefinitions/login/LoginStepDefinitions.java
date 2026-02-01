@@ -37,20 +37,59 @@ public class LoginStepDefinitions {
 
     @Then("I get redirected to Dashboard Page")
     public void getAccessToDashboard() {
-        Assert.assertTrue("The Dashboard Tab not found!", dashboardPage.getDashboardAccess());
+        Assert.assertTrue(
+                "The Dashboard Tab not found!",
+                dashboardPage.getDashboardAccess()
+        );
     }
 
     @And("I should see welcome message")
     public void checkWelcomeMessage() {
-        String expectedResult = "Hello " + UtilClass.username + " (not " + UtilClass.username + "? Log out)";
-        Assert.assertEquals("Something went wrong", expectedResult, dashboardPage.getWelcomeMessage());
+        String expectedResult =
+                "Hello " + UtilClass.username + " (not " + UtilClass.username + "? Log out)";
+        Assert.assertEquals(
+                "Something went wrong",
+                expectedResult,
+                dashboardPage.getWelcomeMessage()
+        );
     }
 
     @Then("I should see error {string}")
     public void i_should_see_login_error(String expectedResult) {
         String actualResult = accountPage.getErrorMessageOnLoginFailure();
-        Assert.assertEquals("The Actual Error Message is different from expected Error Message!",
-                expectedResult, actualResult
+        Assert.assertEquals(
+                "The Actual Error Message is different from expected Error Message!",
+                expectedResult,
+                actualResult
+        );
+    }
+
+    @Given("I am on the {string} page")
+    public void i_am_on_the_page(String pageName) {
+        if (pageName.equalsIgnoreCase("Account")) {
+            websiteStateManager.loadPage(EndPoint.ACCOUNT.url);
+        }
+    }
+
+    @When("I click the {string} link")
+    public void i_click_the_link(String linkText) {
+        accountPage.clickLostPasswordLink(linkText);
+    }
+
+    @And("I enter a registered email {string} in the lost password email field")
+    public void i_enter_registered_email(String email) {
+        accountPage.enterLostPasswordEmail(email);
+    }
+
+    @Then("I should see a confirmation message {string}")
+    public void i_should_see_confirmation_message(String expectedMessage) {
+        String actualMessage =
+                accountPage.getPasswordResetConfirmationMessage();
+
+        Assert.assertEquals(
+                "Password reset confirmation message mismatch!",
+                expectedMessage,
+                actualMessage
         );
     }
 }
