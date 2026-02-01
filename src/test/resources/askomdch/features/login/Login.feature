@@ -16,7 +16,7 @@ Feature: Login Functionality
     Examples:
       | username      | password |
       | USADeltaForce | Pass123! |
-      | USANavy       | Pass456! |
+      | USANavy       | Pass456!qqq |
 
   @negativeScenario
   Scenario Outline: Login fails with invalid credentials
