@@ -16,8 +16,8 @@ Feature: User Registration
     And I should see welcome message
     Examples:
       | Username       | Email address                | Password     |
-      | newAppUser1000 | newAppUser1000@example01.com | Password123! |
-      | newAppUser2000 | newAppUser2000@example01.com | Password456@ |
+      | newAppUser100Kigali | newAppUser1000Kigali@example01.com | Password123! |
+      | newAppUser2000Kigali | newAppUser2000@Kigaliexample01.com | Password456@ |
 
   @negativeScenario
   Scenario Outline: Registration with missing required fields

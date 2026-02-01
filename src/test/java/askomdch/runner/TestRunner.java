@@ -6,7 +6,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "src/test/resources/askomdch/features/",
+        features = "src/test/resources/askomdch/features",
         glue = {"askomdch.stepdefinitions",
                 "askomdch.hooks",
                 "askomdch.dependencyinjection",
@@ -14,8 +14,14 @@ import org.junit.runner.RunWith;
                 "askomdch.domainobject",
                 "askomdch.utils"
                 },
-        plugin = "pretty",
-        tags = "@invalidCredentials and not @addToCart and not @updateCartQuantity and  not @checkout and not @login and not @navigation and not @filterProductsByCategory and not @filterProductsByPriceRange and @register"
+        plugin = {"pretty",
+                    "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",
+                    "html:target/report/report.html",
+                    "junit:target/cucumber-report.xml",
+                    "json:target/report/report.json"
+        },
+        tags = "@login and @positiveScenario"
+//        tags = "not @invalidCredentials and @addToCart and @updateCartQuantity and  not @checkout and not @login and not @navigation and not @filterProductsByCategory and not @filterProductsByPriceRange and not @register"
 )
 public class TestRunner {
 
