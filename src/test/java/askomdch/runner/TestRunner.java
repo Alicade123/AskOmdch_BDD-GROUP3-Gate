@@ -20,7 +20,7 @@ import org.junit.runner.RunWith;
                     "junit:target/cucumber-report.xml",
                     "json:target/report/report.json"
         },
-        tags = "@login and @positiveScenario"
+        tags = "@addToCart"
 //        tags = "not @invalidCredentials and @addToCart and @updateCartQuantity and  not @checkout and not @login and not @navigation and not @filterProductsByCategory and not @filterProductsByPriceRange and not @register"
 )
 public class TestRunner {
